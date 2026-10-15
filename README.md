@@ -82,6 +82,9 @@ node scripts/build-protected.cjs  # 需带 DONGPS_VERSION=<版本> 环境变量
 | `tools/node_modules/` | 依赖，`npm install` 可复原（83M） |
 | `tools/dev/` `tools/verification/` `scripts/tests/artifacts/` | 一次性维护脚本与验证日志 |
 | `src/assets/sponsor/` | 个人收款码图片与声明，不适合公开 |
+
+> 提示：`scripts/tests/sponsor-panel.cjs` 会读取 `src/assets/sponsor/软件声明.txt` 做赞助面板回归测试，
+> 该文件不在版本控制内，克隆后需自行放入才能跑这个测试（其余测试不受影响）。
 | `.workbuddy/` | 本地工作记录与 Agent 上下文 |
 | `dongps_config.json` `*.env` | API 端点 / Key 配置（本就存于 `%APPDATA%\DongPS\`，从不入库） |
 
