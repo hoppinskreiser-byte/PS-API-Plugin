@@ -1,0 +1,35 @@
+# ===== 构建产物（可由源码完全重建，不入库）=====
+dist/
+releases/
+archive/
+
+# ===== 依赖 =====
+node_modules/
+tools/node_modules/
+__pycache__/
+*.pyc
+
+# ===== 一次性脚本 / 验证日志（临时产物）=====
+tools/dev/
+tools/verification/
+scripts/tests/artifacts/
+
+# ===== 本地工作记录（含个人调试细节，公开仓库建议排除）=====
+.workbuddy/
+
+# ===== 系统/编辑器垃圾文件 =====
+Thumbs.db
+desktop.ini
+.DS_Store
+*.swp
+*.tmp
+*.log
+
+# ===== 赞助收款码与声明（个人收款信息，不入库；克隆后手动放回 src/assets/sponsor/）=====
+src/assets/sponsor/
+
+# ===== 本地私有配置保险（万一以后有人放进仓库）=====
+dongps_config.json
+*.env
+.env.*
+secrets.json

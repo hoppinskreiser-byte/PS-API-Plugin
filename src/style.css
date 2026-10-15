@@ -1,0 +1,349 @@
+/* DongPS 面板样式 v1.7 —— 统一比例与节奏 */
+:root {
+  --bg: #1e1e22;
+  --panel: #26262c;
+  --panel-2: #2a2a31;
+  --line: #3a3a42;
+  --line-soft: #31313a;
+  --text: #e9e9ec;
+  --text-2: #a9a9b3;
+  --text-3: #7d7d88;
+  --accent: #2f5fd0;
+  --accent-hi: #3d6ee6;
+  --ok: #5cb85c;
+  --err: #f2777a;
+  --sponsor: #e8a33d;
+  --sponsor-hi: #ffc46b;
+  --sponsor-bg: rgba(232, 163, 61, 0.14);
+  --sponsor-bg-hi: rgba(232, 163, 61, 0.22);
+  --radius: 6px;
+  --gap: 10px;
+  --ctrl-h: 28px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: var(--gap);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 12px;
+  font-family: "Segoe UI", "Microsoft YaHei", sans-serif;
+  line-height: 1.55;
+  overflow-y: auto;
+}
+#app { display: block; padding-bottom: 6px; }
+
+/* ---------- 标题栏 ---------- */
+.titlebar {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  padding: 0 2px 9px 2px;
+}
+.brand { font-size: 15px; font-weight: 600; color: #fff; letter-spacing: 0.4px; }
+.subtitle { font-size: 11px; color: var(--text-3); }
+
+/* ---------- 卡片 ---------- */
+.card {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  margin-bottom: 8px;
+  overflow: hidden;
+  background: var(--panel);
+}
+.card-head {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 8px;
+  background: var(--panel-2);
+  border-bottom: 1px solid var(--line-soft);
+}
+.card-head.clickable { cursor: pointer; }
+.card-head.clickable:hover { background: #30303a; }
+.card-title { font-size: 12px; font-weight: 600; color: #dcdce2; }
+.card-note { font-size: 10px; color: var(--text-3); margin-left: auto; }
+.card-head .arrow { font-size: 10px; color: var(--text-3); margin-left: 6px; }
+.card-body { padding: 8px; }
+.card-body.collapsed { display: none; }
+
+/* ---------- 表单控件（统一高度） ---------- */
+input[type="text"], input[type="password"], textarea, select, .field {
+  width: 100%;
+  min-height: var(--ctrl-h);
+  padding: 4px 7px;
+  background: #17171a;
+  color: var(--text);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  font-size: 12px;
+  font-family: inherit;
+  line-height: 1.4;
+}
+select.field { height: var(--ctrl-h); }
+textarea { resize: vertical; min-height: 58px; }
+input:focus, textarea:focus, select:focus { border-color: var(--accent-hi); outline: none; }
+
+.field-label {
+  display: block;
+  color: var(--text-2);
+  font-size: 11px;
+  margin-bottom: 7px;
+}
+.field-label input { margin-top: 3px; }
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 7px;
+}
+.label { color: var(--text-2); font-size: 11px; white-space: nowrap; }
+.row-note { color: var(--text-3); font-size: 10px; white-space: nowrap; }
+.x { color: var(--text-3); font-size: 11px; }
+input.num { width: 58px; text-align: center; }
+input.num.wide { width: 74px; }
+
+/* ---------- 按钮 ---------- */
+.btn {
+  min-height: var(--ctrl-h);
+  padding: 0 10px;
+  background: #3a3a42;
+  color: #f0f0f2;
+  border: 1px solid #4a4a54;
+  border-radius: 4px;
+  font-size: 12px;
+  font-family: inherit;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.btn:hover { background: #45454f; }
+.btn.primary { background: var(--accent); border-color: var(--accent-hi); font-weight: 500; }
+.btn.primary:hover { background: var(--accent-hi); }
+.btn.ghost { background: transparent; border-color: var(--line); color: var(--text-2); }
+.btn.ghost:hover { background: #26262c; color: var(--text); }
+.btn.sm { min-height: 26px; padding: 0 9px; font-size: 11px; }
+.btn.xs { min-height: 22px; padding: 0 8px; font-size: 11px; }
+.btn.go {
+  width: 100%;
+  min-height: 38px;
+  font-size: 13px;
+  margin: 2px 0 6px 0;
+  letter-spacing: 0.3px;
+}
+.btn:disabled { opacity: 0.5; cursor: default; }
+
+/* ---------- 复选框 ---------- */
+.chk {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  color: var(--text-2);
+  font-size: 11.5px;
+  margin: 6px 0;
+}
+.chk input { margin: 2px 0 0 0; flex: none; }
+
+/* ---------- 提示与状态 ---------- */
+.hint {
+  color: var(--text-3);
+  font-size: 10.5px;
+  line-height: 1.5;
+  margin-top: 6px;
+}
+.hint-ok {
+  color: var(--ok);
+  font-size: 10.5px;
+  visibility: hidden;
+  margin-left: 4px;
+}
+.status {
+  min-height: 58px;
+  padding: 6px 7px;
+  margin-bottom: 8px;
+  background: #17171a;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius);
+  color: var(--text-2);
+  font-size: 11px;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+.status.err { color: var(--err); }
+.status.ok { color: var(--ok); }
+
+/* ---------- 参考图标签 ---------- */
+.reflist { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 6px; }
+.reflist .ref {
+  background: var(--panel-2);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 2px 6px;
+  font-size: 10.5px;
+  color: var(--text-2);
+  max-width: 140px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ---------- 模型列表 ---------- */
+.modellist {
+  max-height: 176px;
+  overflow-y: auto;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: #17171a;
+  margin: 6px 0;
+}
+.modellist .grp {
+  padding: 3px 8px;
+  font-size: 10px;
+  color: var(--text-3);
+  background: #202026;
+  position: sticky;
+  top: 0;
+}
+.modellist .mi {
+  padding: 4px 8px;
+  font-size: 11px;
+  color: #d8d8de;
+  cursor: pointer;
+  border-bottom: 1px solid var(--line-soft);
+  word-break: break-all;
+}
+.modellist .mi:hover { background: var(--accent); color: #fff; }
+
+/* ---------- 组列表（导出组为图片） ---------- */
+.grouplist {
+  max-height: 150px;
+  overflow-y: auto;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: #17171a;
+  margin: 6px 0;
+}
+.grouplist-empty { padding: 6px 8px; font-size: 10.5px; color: var(--text-3); }
+.grouplist .groupitem {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 8px;
+  font-size: 11px;
+  color: #d8d8de;
+  border-bottom: 1px solid var(--line-soft);
+  cursor: pointer;
+}
+.grouplist .groupitem:last-child { border-bottom: 0; }
+.grouplist .groupitem:hover { background: #202026; }
+.grouplist .groupitem input { margin: 0; flex: none; }
+.grouplist .groupitem .gname {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.grouplist .groupitem .gsize { color: var(--text-3); font-size: 10px; white-space: nowrap; }
+.grouplist .groupitem.hidden-layer .gname { color: var(--text-3); }
+
+/* ---------- 预览与历史 ---------- */
+.preview {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: repeating-conic-gradient(#26262b 0% 25%, #1b1b1f 0% 50%) 0 0 / 14px 14px;
+  display: block;
+  margin-bottom: 7px;
+}
+.history { display: flex; flex-wrap: wrap; gap: 6px; }
+.history img {
+  width: 62px;
+  height: 62px;
+  object-fit: cover;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  cursor: pointer;
+  background: #17171a;
+}
+.history img:hover { border-color: var(--accent-hi); }
+
+/* ---------- 赞助支持（暖色高亮，与其他卡片区分） ---------- */
+#sponsorCard { border-color: rgba(232, 163, 61, 0.45); }
+.sponsor-toggle {
+  width: 100%; border: 0; border-bottom: 1px solid rgba(232, 163, 61, 0.35);
+  text-align: left; font: inherit; color: inherit;
+  background: var(--sponsor-bg);
+}
+.sponsor-toggle:hover { background: var(--sponsor-bg-hi); }
+.sponsor-toggle:focus-visible { outline: 2px solid var(--sponsor-hi); outline-offset: -2px; }
+#sponsorCard .card-title { color: var(--sponsor-hi); }
+#sponsorCard .card-note { color: rgba(255, 196, 107, 0.8); }
+#sponsorCard .arrow { color: var(--sponsor-hi); }
+.sponsor-heading { font-weight: 600; color: var(--sponsor-hi); }
+.sponsor-declaration { margin: 6px 0; color: var(--text-2); line-height: 1.8; overflow-wrap: break-word; }
+.sponsor-images { display: flex; flex-direction: column; align-items: center; margin-top: 10px; }
+.sponsor-images img {
+  display: block; width: 100%; max-width: 300px; height: auto; margin-bottom: 12px;
+  border-radius: 4px; background: #fff; padding: 6px;
+  border: 1px solid rgba(232, 163, 61, 0.5);
+}
+
+/* ---------- 关于 ---------- */
+.about {
+  margin-top: 10px;
+  padding: 8px 2px 2px 2px;
+  border-top: 1px solid var(--line-soft);
+  color: var(--text-3);
+  font-size: 10.5px;
+}
+.about-row { display: flex; align-items: center; gap: 5px; line-height: 2; }
+.about-name { color: #cfcfd6; font-weight: 600; font-size: 11.5px; }
+.about-ver { color: var(--text-3); font-size: 10px; }
+.about-sep { color: #4a4a54; }
+
+/* 模型列表项（含删除按钮） */
+.modellist .mi {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.modellist .mi-del {
+  color: #7d7d88;
+  font-size: 14px;
+  line-height: 1;
+  padding: 0 4px;
+  cursor: pointer;
+  flex: none;
+}
+.modellist .mi-del:hover { color: #f2777a; }
+
+/* ---------- 「模型 ID」下拉（自绘，替代 CEP 中不弹出的原生 datalist） ---------- */
+.model-dd {
+  position: fixed;
+  z-index: 9999;
+  max-height: 240px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  background: var(--panel-2);
+  border: 1px solid var(--accent-hi);
+  border-radius: var(--radius);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
+  font-size: 11px;
+}
+.model-dd-item {
+  padding: 6px 9px;
+  color: var(--text);
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border-bottom: 1px solid var(--line-soft);
+}
+.model-dd-item:last-child { border-bottom: none; }
+.model-dd-item:hover { background: var(--accent); color: #fff; }
+.model-dd-item.active { color: var(--accent-hi); }
+.model-dd-empty { padding: 7px 9px; color: var(--text-3); }
